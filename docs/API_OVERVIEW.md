@@ -1,6 +1,6 @@
 # API Overview
 
-The Sydney Bus GTFS API exposes a role-aware REST interface for importing and exploring Transport for NSW bus schedule data.
+The Sydney Transit GTFS API exposes a role-aware REST interface for importing and exploring Transport for NSW bus schedule data.
 
 ## Core Capabilities
 

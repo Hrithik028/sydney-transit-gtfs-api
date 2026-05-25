@@ -1,8 +1,8 @@
-# Sydney Bus GTFS API
+# Sydney Transit GTFS API
 
-A Flask-RESTX API for importing, querying, and visualising Sydney bus schedule data from the Transport for NSW GTFS feed.
+A production-style Flask-RESTX API for importing, querying, and visualising Sydney public transport schedule data from the Transport for NSW GTFS feed.
 
-This project demonstrates backend API design, role-based access control, external API integration, SQLite persistence, automated tests, Swagger documentation, CSV export, and server-side route visualisation.
+This portfolio project demonstrates backend API design, role-based access control, external data ingestion, SQLite persistence, automated testing, Swagger documentation, CSV export, and server-side route visualisation.
 
 ## Features
 
@@ -31,8 +31,8 @@ This project demonstrates backend API design, role-based access control, externa
 ### 1. Clone and Enter the Project
 
 ```bash
-git clone https://github.com/<your-username>/sydney-bus-gtfs-api.git
-cd sydney-bus-gtfs-api
+git clone https://github.com/Hrithik028/sydney-transit-gtfs-api.git
+cd sydney-transit-gtfs-api
 ```
 
 ### 2. Create a Virtual Environment
@@ -135,4 +135,4 @@ This keeps the GitHub repo lightweight, reproducible, and safe to share.
 
 ## Resume Summary
 
-Built a role-based Flask REST API for Sydney bus GTFS data with Transport for NSW integration, SQLite persistence, Swagger documentation, fuzzy search, CSV export, server-side route visualisation, pytest coverage, and CI automation.
+Built a role-based Flask REST API for Sydney transit GTFS data with Transport for NSW integration, SQLite persistence, Swagger documentation, fuzzy search, CSV export, server-side route visualisation, pytest coverage, and CI automation.
