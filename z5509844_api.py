@@ -100,7 +100,7 @@ def get_conn():
     return conn
 
 def init_db():
-    """Initialise users table and seed default accounts."""
+    """Initialise application tables and seed default accounts."""
     with closing(get_conn()) as conn, conn:
         cur = conn.cursor()
         cur.executescript("""
@@ -109,6 +109,58 @@ def init_db():
                 password TEXT NOT NULL,
                 role TEXT CHECK(role IN ('Admin','Planner','Commuter')) NOT NULL,
                 enabled INTEGER DEFAULT 1
+            );
+
+            CREATE TABLE IF NOT EXISTS agency (
+                agency_id TEXT PRIMARY KEY,
+                agency_name TEXT,
+                agency_url TEXT,
+                agency_timezone TEXT,
+                agency_lang TEXT,
+                agency_phone TEXT
+            );
+
+            CREATE TABLE IF NOT EXISTS routes (
+                route_id TEXT PRIMARY KEY,
+                agency_id TEXT,
+                route_short_name TEXT,
+                route_long_name TEXT,
+                route_desc TEXT,
+                route_type INTEGER,
+                route_color TEXT,
+                route_text_color TEXT
+            );
+
+            CREATE TABLE IF NOT EXISTS trips (
+                route_id TEXT,
+                service_id TEXT,
+                trip_id TEXT PRIMARY KEY,
+                trip_headsign TEXT,
+                direction_id INTEGER,
+                block_id TEXT,
+                shape_id TEXT
+            );
+
+            CREATE TABLE IF NOT EXISTS stops (
+                stop_id TEXT PRIMARY KEY,
+                stop_name TEXT,
+                stop_lat REAL,
+                stop_lon REAL
+            );
+
+            CREATE TABLE IF NOT EXISTS stop_times (
+                trip_id TEXT,
+                arrival_time TEXT,
+                departure_time TEXT,
+                stop_id TEXT,
+                stop_sequence INTEGER
+            );
+
+            CREATE TABLE IF NOT EXISTS shapes (
+                shape_id TEXT,
+                shape_pt_lat REAL,
+                shape_pt_lon REAL,
+                shape_pt_sequence INTEGER
             );
         """)
         defaults = [
